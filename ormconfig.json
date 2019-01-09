@@ -2,11 +2,11 @@
   "type": "postgres",
   "host": "localhost",
   "port": 5432,
-  "username": "pguser",
-  "password": "pguser",
+  "username": "admin",
+  "password": "12345678",
   "database": "ts_server",
   "synchronize": true,
-  "logging": false,
+  "logging": true,
   "entities": [
     "src/entity/**/*.ts"
   ],
