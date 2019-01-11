@@ -1,0 +1,25 @@
+type User{
+  id: Int!
+  email:String!
+  nickName:String!
+  password:String!
+}
+
+type UserProfile{
+  id:Int!
+  fullName:String!
+  sex:Boolean!
+  jobType:String!
+  address:String!
+}
+
+
+input ProfileInput{
+  fullName:String!
+  sex:Boolean!
+  jobType:String!
+  address:String!
+}
+type Mutation {
+  addUser(email:String!,nickName:String!,email:String!,password:String!,profile:ProfileInput!):UserProfile!
+}
