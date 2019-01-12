@@ -1,25 +1,43 @@
-type User{
+type User {
   id: Int!
-  email:String!
-  nickName:String!
-  password:String!
+  email: String!
+  nickName: String!
+  password: String!
 }
 
-type UserProfile{
-  id:Int!
-  fullName:String!
-  sex:Boolean!
-  jobType:String!
-  address:String!
+type UserProfile {
+  id: Int!
+  fullName: String!
+  sex: Boolean!
+  jobType: String!
+  address: String!
+  user: User!
 }
 
+enum JobTypeEnum {
+  STUDENT
+  SALER
+  PROGROMMER
+}
 
-input ProfileInput{
-  fullName:String!
-  sex:Boolean!
-  jobType:String!
-  address:String!
+input UserInput {
+  email: String!
+  nickName: String!
+  password: String!
+}
+
+input ProfileInput {
+  fullName: String!
+  sex: Boolean!
+  jobType: JobTypeEnum!
+  address: String!
+}
+
+type Query {
+  hello(name: String!): String!
+  user(id: Int!): UserProfile!
+  users: [UserProfile!]!
 }
 type Mutation {
-  addUser(email:String!,nickName:String!,email:String!,password:String!,profile:ProfileInput!):UserProfile!
+  createUser(user: UserInput!, profile: ProfileInput!): UserProfile!
 }

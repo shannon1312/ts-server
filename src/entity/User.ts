@@ -1,18 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 
 @Entity()
-export class User {
-
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'text', unique: true })
+  @Column({ type: "text", unique: true })
   email: string;
 
-  @Column({ type: 'varchar', length: '230' ,name:'nick_name'})
+  @Column({ type: "varchar", length: "230", name: "nick_name" })
   nickName: string;
 
-  @Column({length:100})
-  password:string;
-
+  @Column({ length: 100 })
+  password: string;
 }

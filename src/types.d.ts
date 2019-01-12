@@ -1,21 +1,39 @@
 export type Maybe<T> = T | null;
 
+export interface UserInput {
+  email: string;
+
+  nickName: string;
+
+  password: string;
+}
+
 export interface ProfileInput {
   fullName: string;
 
   sex: boolean;
 
-  jobType: string;
+  jobType: JobTypeEnum;
 
   address: string;
+}
+
+export enum JobTypeEnum {
+  Student = "STUDENT",
+  Saler = "SALER",
+  Progrommer = "PROGROMMER"
 }
 
 // ====================================================
 // Types
 // ====================================================
 
-export interface Mutation {
-  addUser: UserProfile;
+export interface Query {
+  hello: string;
+
+  user: UserProfile;
+
+  users: UserProfile[];
 }
 
 export interface UserProfile {
@@ -28,6 +46,8 @@ export interface UserProfile {
   jobType: string;
 
   address: string;
+
+  user: User;
 }
 
 export interface User {
@@ -40,16 +60,22 @@ export interface User {
   password: string;
 }
 
+export interface Mutation {
+  createUser: UserProfile;
+}
+
 // ====================================================
 // Arguments
 // ====================================================
 
-export interface AddUserMutationArgs {
-  email: string;
-
-  nickName: string;
-
-  password: string;
+export interface HelloQueryArgs {
+  name: string;
+}
+export interface UserQueryArgs {
+  id: number;
+}
+export interface CreateUserMutationArgs {
+  user: UserInput;
 
   profile: ProfileInput;
 }
