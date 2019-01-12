@@ -27,7 +27,7 @@ Learn create server with typescript、postgrepsql、graqphql
 3. 登录
    `psql ts_server pguser`
 
-## 查询和删除
+## 查询和新增
 
 ![](https://github.com/liuxinl/ts-server/blob/master/doc/images/WechatIMG143.png)
 
