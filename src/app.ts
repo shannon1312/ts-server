@@ -14,7 +14,7 @@ const resolvers: ResolverMap = {
   Query: {
     hello: (_, { name }: types.HelloQueryArgs) => `Hello ${name || "World"}`,
     user: async (_, { id }: types.UserQueryArgs) => {
-      const res = await UserProfile.findOne(id);
+      const res = await UserProfile.findOne({ id }, { relations: ["user"] });
       return res;
     },
     users: async () => {
